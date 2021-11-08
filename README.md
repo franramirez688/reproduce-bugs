@@ -11,7 +11,7 @@ Where:
 
 * LibNoSoname == `nosoname/1.0`
 * OtherLib == `libB/1.0`
-* Executable == `nosoname/1.0`
+* Executable == `app`
 
 You can try it running (needs Conan installed):
 
