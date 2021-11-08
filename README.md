@@ -13,5 +13,11 @@ Where:
 * OtherLib == `libB/1.0`
 * Executable == `nosoname/1.0`
 
-- Issue related: https://github.com/conan-io/conan/issues/3230
-- Howto: run `./build.sh` in your command prompt (needs Conan installed)
+You can try it running (needs Conan installed):
+
+```bash
+$ ./build.sh
+```
+
+- Conan issue: https://github.com/conan-io/conan/issues/3230
+
