@@ -4,7 +4,7 @@ Conan non-SONAME example
 This example is simulating the next graph:
 
 ```
-LibNoSoname' -> 'OtherLib' -> 'Executable'
+'LibNoSoname' -> 'OtherLib' -> 'Executable'
 ```
 
 Where:
