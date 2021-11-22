@@ -10,6 +10,6 @@ echo "---------------- Building application which consumes libB/1.0"
 cd app && rm -rf build && conan install . -if build
 cd build && cmake -G "Unix Makefiles" .. && cmake --build .
 echo "---------------- Executing the application"
-./example
+./bin/example
 echo "---------------- Everything was fine!"
 cd $CUR_DIR
