@@ -2,5 +2,5 @@
 libB/1.0
 
 [generators]
-CMakeDeps
-CMakeToolchain
+cmake
+cmake_find_package_multi

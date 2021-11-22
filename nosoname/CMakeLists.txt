@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 project(nosoname CXX)
 
+include(conanbuildinfo.cmake)
+conan_basic_setup()
+
 add_library(nosoname src/nosoname.cpp)
 
 # Adding NO_SONAME flag to main library

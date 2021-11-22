@@ -1,6 +1,4 @@
-from conans import ConanFile
-from conan.tools.cmake import CMakeToolchain, CMake
-from conan.tools.layout import cmake_layout
+from conans import ConanFile, CMake, tools
 
 
 class LibBConan(ConanFile):
@@ -16,14 +14,11 @@ class LibBConan(ConanFile):
     exports_sources = "CMakeLists.txt", "src/*"
     # requires
     requires = "nosoname/1.0"
-    generators = "CMakeDeps", "CMakeToolchain"
+    generators = "cmake", "cmake_find_package_multi"
 
     def config_options(self):
         if self.settings.os == "Windows":
             del self.options.fPIC
-
-    def layout(self):
-        cmake_layout(self)
 
     def build(self):
         cmake = CMake(self)
@@ -31,8 +26,13 @@ class LibBConan(ConanFile):
         cmake.build()
 
     def package(self):
-        cmake = CMake(self)
-        cmake.install()
+        self.copy("*.h", dst="include", src="src")
+        self.copy("*.lib", dst="lib", keep_path=False)
+        self.copy("*.dll", dst="bin", keep_path=False)
+        self.copy("*.so", dst="lib", keep_path=False)
+        self.copy("*.dylib", dst="lib", keep_path=False)
+        self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["libB"]
+        self.cpp_info.names["cmake_find_package_multi"] = "libB"

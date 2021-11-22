@@ -1,6 +1,4 @@
-from conans import ConanFile
-from conan.tools.cmake import CMakeToolchain, CMake
-from conan.tools.layout import cmake_layout
+from conans import ConanFile, CMake, tools
 
 
 class NosonameConan(ConanFile):
@@ -14,17 +12,11 @@ class NosonameConan(ConanFile):
 
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "src/*"
+    generators = "cmake", "cmake_find_package_multi"
 
     def config_options(self):
         if self.settings.os == "Windows":
             del self.options.fPIC
-
-    def layout(self):
-        cmake_layout(self)
-
-    def generate(self):
-        tc = CMakeToolchain(self)
-        tc.generate()
 
     def build(self):
         cmake = CMake(self)
@@ -32,8 +24,13 @@ class NosonameConan(ConanFile):
         cmake.build()
 
     def package(self):
-        cmake = CMake(self)
-        cmake.install()
+        self.copy("*.h", dst="include", src="src")
+        self.copy("*.lib", dst="lib", keep_path=False)
+        self.copy("*.dll", dst="bin", keep_path=False)
+        self.copy("*.so", dst="lib", keep_path=False)
+        self.copy("*.dylib", dst="lib", keep_path=False)
+        self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["nosoname"]
+        self.cpp_info.names["cmake_find_package_multi"] = "nosoname"
