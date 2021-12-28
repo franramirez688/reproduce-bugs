@@ -4,10 +4,9 @@ include(default)
 build_type=Release
 arch_target=x86_64
 compiler=clang
-compiler.version=13
+compiler.version=12
 compiler.cppstd=17
 compiler.libcxx=libstdc++11
-compiler.runtime=MT
 
 [env]
 CC="C:/Program Files/LLVM/bin/clang"
