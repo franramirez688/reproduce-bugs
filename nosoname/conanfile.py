@@ -12,7 +12,7 @@ class NosonameConan(ConanFile):
 
     # Sources are located in the same place as this recipe, copy them to the recipe
     exports_sources = "CMakeLists.txt", "src/*"
-    generators = "cmake", "cmake_find_package_multi"
+    generators = "cmake_find_package_multi"
 
     def config_options(self):
         if self.settings.os == "Windows":

@@ -4,8 +4,8 @@ project(PackageTest CXX)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
-set(CMAKE_MODULE_PATH "/home/franchuti/develop/tests/reproduce-bugs/app/build" ${CMAKE_MODULE_PATH})
-set(CMAKE_PREFIX_PATH "/home/franchuti/develop/tests/reproduce-bugs/app/build" ${CMAKE_PREFIX_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
+set(CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
 
 find_package(libB CONFIG REQUIRED)

@@ -1,12 +1,9 @@
 cmake_minimum_required(VERSION 3.15)
 project(libB CXX)
 
-include(conanbuildinfo.cmake)
-conan_basic_setup()
-
 find_package(nosoname CONFIG REQUIRED)
 
-add_library(libB src/libB.cpp)
+add_library(libB SHARED src/libB.cpp)
 target_link_libraries(libB nosoname::nosoname)
 
 set_target_properties(libB PROPERTIES PUBLIC_HEADER "src/libB.h")

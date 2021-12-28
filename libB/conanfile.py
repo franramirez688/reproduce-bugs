@@ -14,7 +14,7 @@ class LibBConan(ConanFile):
     exports_sources = "CMakeLists.txt", "src/*"
     # requires
     requires = "nosoname/1.0"
-    generators = "cmake", "cmake_find_package_multi"
+    generators = "cmake_find_package_multi"
 
     def config_options(self):
         if self.settings.os == "Windows":

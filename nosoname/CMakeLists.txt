@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 project(nosoname CXX)
 
-include(conanbuildinfo.cmake)
-conan_basic_setup()
-
-add_library(nosoname src/nosoname.cpp)
+add_library(nosoname SHARED src/nosoname.cpp)
 
 # Adding NO_SONAME flag to main library
 set_target_properties(nosoname PROPERTIES PUBLIC_HEADER "src/nosoname.h" NO_SONAME 1)
