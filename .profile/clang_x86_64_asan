@@ -6,7 +6,6 @@ arch_target=x86_64
 compiler=clang
 compiler.version=12
 compiler.cppstd=17
-compiler.libcxx=libstdc++11
 
 [env]
 CC="C:/Program Files/LLVM/bin/clang"
