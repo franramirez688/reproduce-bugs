@@ -1,2 +1,6 @@
-conan install . -if build --build outdated -pr .profile/clang_x86_64_asan -pr:b .profile/clang_x86_64_asan 
-conan build . -bf build
+rm -rf ./build/*
+mkdir build
+cd build
+cmake -DCMAKE_CC_COMPILER="C:/Program Files/LLVM/bin/clang.exe" -DCMAKE_CXX_COMPILER="C:/Program Files/LLVM/bin/clang++.exe"  -G "MinGW Makefiles" ..
+cmake --build .
+cd ..
