@@ -10,5 +10,5 @@ compiler.cppstd=17
 [env]
 CC="C:/Program Files/LLVM/bin/clang"
 CXX="C:/Program Files/LLVM/bin/clang++"
-CFLAGS=-MT -fsanitize=address
-CXXFLAGS=-MT -fsanitize=address
+CFLAGS=-fsanitize=address -shared-libsan
+CXXFLAGS=-fsanitize=address -shared-libsan
